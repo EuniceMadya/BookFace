@@ -1,0 +1,42 @@
+"""urls for the front end to send the requests """
+from django.urls import path
+from .views import *
+
+app_name = 'Homepage'
+urlpatterns= [
+    path('register', RegistrationAPIView.as_view()),
+    path('login', LoginAPIView.as_view()),
+    path('get_book_clubs', BookClubAPIViewSet.as_view({'post': 'get_user_bookclub'})),
+    path('get_single_bookclub', BookClubAPIViewSet.as_view({'post': 'get_single_bookclub'})),
+    path('create_book_club', BookClubAPIViewSet.as_view({'post': 'create_bookclub'})),
+    path('join_book_club', BookClubAPIViewSet.as_view({'post': 'join_bookclub'})),
+    path('delete_book_club', BookClubAPIViewSet.as_view({'post': 'delete_bookclub'})),
+    path('get_discussions', DiscussionAPIViewSet.as_view({'post': 'list_discussions'})),
+    path('get_disussion_information', DiscussionAPIViewSet.as_view({'post': 'get_disussion_information'})),
+    path('get_discussion_threads', DiscussionAPIViewSet.as_view({'post': 'list_threads'})),
+    path('post_discussion', DiscussionAPIViewSet.as_view({'post': 'create_discussion'})),
+    path('post_reply', DiscussionAPIViewSet.as_view({'post': 'post_reply'})),
+    path('delete_discussion', DiscussionAPIViewSet.as_view({'post': 'delete_discussion'})),
+    path('delete_thread', DiscussionAPIViewSet.as_view({'post': 'delete_thread'})),
+    path('edit_thread', DiscussionAPIViewSet.as_view({'post': 'edit_thread'})),
+    path('get_current_polls', PollAPIViewSet.as_view({'post': 'list_current_polls'})),
+    path('get_past_polls', PollAPIViewSet.as_view({'post': 'list_past_polls'})),
+    path('get_poll_info', PollAPIViewSet.as_view({'post': 'get_poll_info'})),
+    path('create_poll', PollAPIViewSet.as_view({'post': 'create_poll'})),
+    path('vote_poll', PollAPIViewSet.as_view({'post': 'vote_poll'})),
+    path('delete_poll', PollAPIViewSet.as_view({'post': 'delete_poll'})),
+    path('delete_vote', PollAPIViewSet.as_view({'post': 'delete_vote'})),
+    path('get_future_meetings', MeetingAPIViewSet.as_view({'post': 'list_future_meetings'})),
+    path('get_past_meetings', MeetingAPIViewSet.as_view({'post': 'list_past_meetings'})),
+    path('create_meeting', MeetingAPIViewSet.as_view({'post': 'create_meeting'})),
+    path('attend_meeting', MeetingAPIViewSet.as_view({'post': 'attend_meeting'})),
+    path('delete_meeting', MeetingAPIViewSet.as_view({'post': 'delete_meeting'})),
+    path('unattend_meeting', MeetingAPIViewSet.as_view({'post': 'delete_attendance'})),
+    path('search_book_clubs', SearchAPIView.as_view()),
+    # path('search_book', MeetingAPIViewSet.as_view({'post': 'search_book'})),
+    path('set_club', SettingsAPIViewSet.as_view({'post': 'Club_Setting'})),
+    path('set_user', SettingsAPIViewSet.as_view({'post': 'User_Setting'})),
+    path('is_admin', AdminCheckAPIView.as_view()),
+    path('get_user', UsersAPIView.as_view()),
+    path('leave_club', BookClubAPIViewSet.as_view({'post': 'leave_bookclub'})),
+]

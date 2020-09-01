@@ -1,0 +1,6 @@
+FUN_SECRET_KEY="tl!+x+2sk&ugrkoa(v6ky9$1lpn7+!(=-x08%4-2y9nu*t^=79"
+DB_USER_NAME="admin"
+DB_PWD="FOURWORDSALLLOWERCASE"
+FUN_CIPHER_KEY="EVtZqpI8Hk6cuDSj"
+FUN_CIPHER_IV="TuDKCpbRcbwAOOaF"
+
